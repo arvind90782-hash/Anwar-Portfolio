@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Anwar | Finance Video Editor</title>
+  <meta name="description" content="Anwar is a freelance video editor specializing in finance Reels and Shorts.">
+  <meta name="keywords" content="Anwar, Finance Video Editor, Finance Reels, Finance Shorts">
+  <meta name="author" content="Anwar">
+  <meta property="og:title" content="Anwar | Finance Video Editor">
+  <meta property="og:description" content="Freelance video editor specializing in finance Reels and Shorts.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="Anwar-favicon.svg">
+  <link rel="apple-touch-icon" href="Anwar.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="true">
+    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="5" fill="currentColor"></circle>
+      <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M19.1 4.9l-1.6 1.6M6.5 17.5l-1.6 1.6"></path>
+      </g>
+    </svg>
+    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M20 14.5A8 8 0 0 1 9.5 4a.5.5 0 0 0-.7-.6 9 9 0 1 0 11.8 11.8.5.5 0 0 0-.6-.7Z" fill="currentColor"></path>
+      <circle cx="14.5" cy="9.5" r="1" fill="currentColor" opacity=".45"></circle>
+      <circle cx="17" cy="13" r=".7" fill="currentColor" opacity=".35"></circle>
+      <circle cx="11.5" cy="14" r=".9" fill="currentColor" opacity=".4"></circle>
+    </svg>
+  </button>
+     <header>
+    <section id="profile">
+      <div class="profile-content">
+        <div class="profile-img">
+          <img src="Anwar.png" alt="Anwar" class="image" fetchpriority="high">
+        </div>
+        <p class="profile-category">FINANCE VIDEO EDITOR</p>
+        <h1 id="typewriter-text">Hi, I'm Anwar.</h1>
+        <p class="bio">
+          I'm a freelance video editor specializing in finance Reels and Shorts. I focus on clean, simple, and purposeful editing rather than unnecessary effects. My goal is to make your content engaging, deliver your message clearly, and help your videos reach the right audience.
+        </p>
+        
+        <div class="contact-buttons">
+          <a href="https://wa.me/919334273309" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contact Anwar on WhatsApp">
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:anwaransarijmt1098@gmail.com" class="email-button">Email Anwar</a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <section id="about">
+    <h2>Why Work With Anwar?</h2>
+    <p class="section-intro">Finance content deserves editing that makes the message easy to follow. My approach stays focused on:</p>
+    <ul class="benefit-list">
+      <li><strong>Clear storytelling</strong><span>Your core message stays easy to understand from start to finish.</span></li>
+      <li><strong>Clean, purposeful edits</strong><span>No unnecessary effects—just editing that supports your content.</span></li>
+      <li><strong>Short-form finance focus</strong><span>Reels and Shorts shaped to keep viewers engaged with your message.</span></li>
+    </ul>
+  </section>
+
+  <section id="videos" style="padding-bottom: 0;">
+    <h2>Finance Video Editing</h2>
+    <p style="color: #64748b; font-size: 1.05rem;">Short-form finance video samples.</p>
+  </section>
+
+  <section id="short-form-videos" class="video-section">
+    <h2>Short Videos</h2>
+    <p>Finance Reels and Shorts edited with a clean, clear style.</p>
+    <div class="short-video-slider" id="shortSlider">
+      <div class="slider-controls">
+        <button type="button" class="slider-btn prev-btn" id="prevBtn" aria-label="Previous">❮</button>
+        <button type="button" class="slider-btn next-btn" id="nextBtn" aria-label="Next">❯</button>
+      </div>
+      <div class="short-video-grid" id="shortVideoGrid"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p>Have a finance video project in mind? Contact Anwar.</p>
+    <p><a href="mailto:anwaransarijmt1098@gmail.com">anwaransarijmt1098@gmail.com</a></p>
+    <p><a href="https://wa.me/919334273309" target="_blank" rel="noopener noreferrer">WhatsApp: 9334273309</a></p>
+  </section>
+
+  <section id="client-inquiry" class="inquiry-section">
+    <h2>Tell Me About Your Finance Video</h2>
+    <div class="inquiry-intro">
+      <p>Share a few details about your Reel or Short. Your message will open in WhatsApp so we can discuss the edit directly.</p>
+    </div>
+    <div class="inquiry-card">
+      <form class="inquiry-form" id="projectInquiryForm">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="clientName">Your name <span>*</span></label>
+            <input type="text" id="clientName" name="clientName" placeholder="Enter your name" required>
+          </div>
+          <div class="form-field">
+            <label for="editingType">What do you need edited? <span>*</span></label>
+            <select id="editingType" name="editingType" required>
+              <option value="" selected disabled>Select a format</option>
+              <option value="Finance Reel">Finance Reel</option>
+              <option value="Finance Short">Finance Short</option>
+              <option value="Other finance short-form video">Other finance short-form video</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="projectDetails">Tell me about your video <span>*</span></label>
+          <textarea id="projectDetails" name="projectDetails" rows="5" placeholder="Topic, references, style, or anything else I should know" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="form-submit" type="submit"><span>Send on WhatsApp</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer><p>&copy; <span id="currentYear"></span> Anwar. Finance Video Editor.</p></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
