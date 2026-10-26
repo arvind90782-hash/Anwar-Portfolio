@@ -107,7 +107,8 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       will-change: transform;
       backface-visibility: hidden;
-      overflow: hidden;             /* zaroori — extra part hide hoga */
+      overflow: hidden;    
+      box-shadow: 0 0 0 4px #00d300;         /* zaroori — extra part hide hoga */
     }
 
     .profile-img .image {
