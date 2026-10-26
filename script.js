@@ -197,7 +197,8 @@
 
   function applyCardPosition(card, position) {
     card.style.transform = `translate3d(${position.x}px, 0, ${position.z}px) rotateY(${position.rotateY}deg) scale(${position.scale})`;
-    card.style.opacity = String(position.opacity);
+    card.style.opacity = '1';
+    card.querySelector('video').style.opacity = String(position.opacity);
     card.style.zIndex = String(position.zIndex);
     card.style.visibility = position.visible ? 'visible' : 'hidden';
     card.style.pointerEvents = position.visible ? 'auto' : 'none';

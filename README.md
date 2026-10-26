@@ -10,17 +10,34 @@ A responsive portfolio for Anwar, a freelance video editor specializing in finan
 - Project inquiry form that prepares a WhatsApp message
 - Responsive layout, scroll reveals, and reduced-motion support
 - Rounded, multi-size ICO browser favicon and Anwar profile image
-- Search and social metadata, structured profile data, `robots.txt`, an XML sitemap, and a section-by-section HTML site map
+- Search and social metadata, structured profile data, `robots.txt`, and an XML sitemap
 - Optimized video poster images for faster loading
 - Vercel security headers via `vercel.json` and an Apache fallback via `.htaccess`
+- A PowerShell helper for reviewing, committing, and pushing changes to GitHub
 
 ## Run locally
 
 Open `index.html` in a browser. For local development, you can also serve the project directory with any static file server. Keep the asset paths and the `Short video` folder together with the HTML file.
 
+## Publish changes to GitHub on Windows
+
+After editing the site, open PowerShell in this project folder and run:
+
+```powershell
+.\push-changes.ps1
+```
+
+If PowerShell blocks the script, run it for this command only with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\push-changes.ps1
+```
+
+The helper checks for changes, stages the project, shows what will be committed, and asks for a commit message and confirmation before committing and pushing to the `origin` remote on the current branch. Review the displayed file list and do not continue if it includes files you do not intend to publish. Git must be installed and authenticated with GitHub before the first push.
+
 ## Deployment and search indexing
 
-The primary production URL configured in the page metadata and sitemap is `https://anwar-videoeditor.vercel.app/`. Deploy the repository through Vercel so `vercel.json` security headers are applied. `sitemap.html` links visitors directly to every section; `sitemap.xml` lists the crawlable pages only, because URL fragments such as `/#about` are not separate indexable pages. Submit `https://anwar-videoeditor.vercel.app/sitemap.xml` in Google Search Console after deployment and verify the homepage with URL Inspection.
+The primary production URL configured in the page metadata and sitemap is `https://anwar-videoeditor.vercel.app/`. Deploy the repository through Vercel so `vercel.json` security headers are applied. `sitemap.xml` lists the crawlable pages only, because URL fragments such as `/#about` are not separate indexable pages. Submit `https://anwar-videoeditor.vercel.app/sitemap.xml` in Google Search Console after deployment and verify the homepage with URL Inspection.
 
 GitHub Pages does not process `.htaccess` or Vercel headers. `.htaccess` is only for Apache hosting. If you use another domain or host, update the canonical, sitemap, robots, Open Graph, and structured-data URLs and configure equivalent security headers on that host.
 
@@ -42,8 +59,8 @@ This static site has no server-side form storage or analytics. The inquiry form 
 ├── apple-touch-icon.png
 ├── robots.txt
 ├── sitemap.xml
-├── sitemap.html
 ├── vercel.json
+├── push-changes.ps1
 └── Short video/
     ├── cover 1.jpg ... cover 6.jpg
     └── short 1.mp4 ... short 6.mp4
