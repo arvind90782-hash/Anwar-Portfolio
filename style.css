@@ -107,8 +107,14 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       will-change: transform;
       backface-visibility: hidden;
-      overflow: hidden;    
-      box-shadow: 0 0 0 4px #00d300;         /* zaroori — extra part hide hoga */
+      overflow: hidden;
+      box-shadow: 0 0 0 4px #00d300, 0 0 12px 3px rgba(0, 211, 0, 0.5);
+      animation: profile-outline-glow 2.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes profile-outline-glow {
+      from { box-shadow: 0 0 0 4px #00d300, 0 0 10px 2px rgba(0, 211, 0, 0.42); }
+      to { box-shadow: 0 0 0 4px #00d300, 0 0 30px 6px rgba(0, 211, 0, 0.78); }
     }
 
     .profile-img .image {
@@ -123,7 +129,11 @@
 
     .profile-img:hover {
       transform: scale(1.03);      /* container ka hover effect (optional) */
-      box-shadow: 0 15px 40px rgba(0, 224, 255, 0.4);
+      box-shadow:
+        0 0 0 4px #00d300,
+        0 15px 40px rgba(0, 224, 255, 0.4),
+        0 0 21px 6px rgba(0, 211, 0, 0.78);
+      animation: none;
     }
     
     #profile h1 {
@@ -980,6 +990,10 @@
         opacity: 1 !important;
         filter: none !important;
         transform: none !important;
+      }
+
+      .profile-img {
+        animation: none;
       }
     }
     
