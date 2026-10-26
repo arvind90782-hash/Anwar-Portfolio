@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arvind90782-hash.github.io/Anwar-Portfolio/sitemap.xml
+Sitemap: https://anwar-videoeditor.vercel.app/sitemap.xml

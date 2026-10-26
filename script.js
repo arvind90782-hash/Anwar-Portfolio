@@ -99,32 +99,32 @@
   const videoSources = [
     {
       src: 'Short video/short 1.mp4',
-      poster: 'Short video/cover 1.png',
+      poster: 'Short video/cover 1.jpg',
       title: '₹1 Lakh Per Month'
     },
     {
       src: 'Short video/short 2.mp4',
-      poster: 'Short video/cover 2.png',
+      poster: 'Short video/cover 2.jpg',
       title: 'Finance & Lifestyle'
     },
     {
       src: 'Short video/short 3.mp4',
-      poster: 'Short video/cover 3.png',
+      poster: 'Short video/cover 3.jpg',
       title: 'Finance Short 03'
     },
     {
       src: 'Short video/short 4.mp4',
-      poster: 'Short video/cover 4.png',
+      poster: 'Short video/cover 4.jpg',
       title: 'Why Does the Fortuner Cost ₹42 Lakh?'
     },
     {
       src: 'Short video/short 5.mp4',
-      poster: 'Short video/cover 5.png',
+      poster: 'Short video/cover 5.jpg',
       title: 'Why It Is Important'
     },
     {
       src: 'Short video/short 6.mp4',
-      poster: 'Short video/cover 6.png',
+      poster: 'Short video/cover 6.jpg',
       title: 'Share This'
     }
   ];

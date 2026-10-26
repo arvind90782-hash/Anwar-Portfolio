@@ -10,18 +10,19 @@ A responsive portfolio for Anwar, a freelance video editor specializing in finan
 - Project inquiry form that prepares a WhatsApp message
 - Responsive layout, scroll reveals, and reduced-motion support
 - Rounded, multi-size ICO browser favicon and Anwar profile image
-- Search and social metadata, structured profile data, `robots.txt`, and an XML sitemap
-- Optional Apache HTTPS redirect and security headers via `.htaccess`
+- Search and social metadata, structured profile data, `robots.txt`, an XML sitemap, and a section-by-section HTML site map
+- Optimized video poster images for faster loading
+- Vercel security headers via `vercel.json` and an Apache fallback via `.htaccess`
 
 ## Run locally
 
 Open `index.html` in a browser. For local development, you can also serve the project directory with any static file server. Keep the asset paths and the `Short video` folder together with the HTML file.
 
-## Publish on GitHub Pages
+## Deployment and search indexing
 
-The canonical URL configured in the page metadata and sitemap is `https://arvind90782-hash.github.io/Anwar-Portfolio/`. To publish it, open the repository's **Settings → Pages** and select the `main` branch with the repository root as the source. After the site is live, submit `https://arvind90782-hash.github.io/Anwar-Portfolio/sitemap.xml` in Google Search Console.
+The primary production URL configured in the page metadata and sitemap is `https://anwar-videoeditor.vercel.app/`. Deploy the repository through Vercel so `vercel.json` security headers are applied. `sitemap.html` links visitors directly to every section; `sitemap.xml` lists the crawlable pages only, because URL fragments such as `/#about` are not separate indexable pages. Submit `https://anwar-videoeditor.vercel.app/sitemap.xml` in Google Search Console after deployment and verify the homepage with URL Inspection.
 
-GitHub Pages does not process `.htaccess`; it is included only for Apache hosting. For other hosts, configure HTTPS redirects and equivalent security headers in that host's dashboard or server configuration. Replace the canonical, sitemap, robots, Open Graph, and structured-data URLs if you deploy to a different domain.
+GitHub Pages does not process `.htaccess` or Vercel headers. `.htaccess` is only for Apache hosting. If you use another domain or host, update the canonical, sitemap, robots, Open Graph, and structured-data URLs and configure equivalent security headers on that host.
 
 ## Privacy and security
 
@@ -38,10 +39,13 @@ This static site has no server-side form storage or analytics. The inquiry form 
 ├── favicon.ico
 ├── Anwar.png
 ├── Anwar.webp
+├── apple-touch-icon.png
 ├── robots.txt
 ├── sitemap.xml
+├── sitemap.html
+├── vercel.json
 └── Short video/
-    ├── cover 1.png ... cover 6.png
+    ├── cover 1.jpg ... cover 6.jpg
     └── short 1.mp4 ... short 6.mp4
 ```
 
