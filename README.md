@@ -9,7 +9,7 @@ A responsive portfolio for Anwar, a freelance video editor specializing in finan
 - Dark theme by default, with a compact light/dark toggle
 - Project inquiry form that prepares a WhatsApp message
 - Responsive layout, scroll reveals, and reduced-motion support
-- Rounded, multi-size ICO browser favicon and Anwar profile image
+- 96 × 96 PNG favicon, multi-size ICO fallback, and Anwar profile image
 - Search and social metadata, structured profile data, `robots.txt`, and an XML sitemap
 - Optimized video poster images for faster loading
 - Vercel security headers via `vercel.json` and an Apache fallback via `.htaccess`
@@ -54,6 +54,7 @@ This static site has no server-side form storage or analytics. The inquiry form 
 ├── script.js
 ├── .htaccess
 ├── favicon.ico
+├── favicon-96x96.png
 ├── Anwar.png
 ├── Anwar.webp
 ├── apple-touch-icon.png
