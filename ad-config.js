@@ -1,0 +1,29 @@
+window.ANWAR_AD_CONFIG = {
+  "placements": {
+    "project-top": {
+      "enabled": false,
+      "fallback": false,
+      "campaign": null
+    },
+    "project-middle": {
+      "enabled": false,
+      "fallback": false,
+      "campaign": null
+    },
+    "project-bottom": {
+      "enabled": false,
+      "fallback": false,
+      "campaign": null
+    },
+    "portfolio-interstitial": {
+      "enabled": false,
+      "fallback": false,
+      "campaign": null
+    },
+    "supporting-content": {
+      "enabled": false,
+      "fallback": false,
+      "campaign": null
+    }
+  }
+};

@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://anwar-videoeditor.vercel.app/</loc>
-    <lastmod>2026-10-26</lastmod>
   </url>
-
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/presenter-led-finance-reel/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/100-crore-time-comparison/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/sip-vs-fd-projection/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/fortuner-price-breakdown/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/car-cost-example/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/work/mutual-fund-calculator-explainer/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/services/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/about/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/contact/</loc>
+  </url>
+  <url>
+    <loc>https://anwar-videoeditor.vercel.app/privacy-policy/</loc>
+  </url>
 </urlset>

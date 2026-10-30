@@ -15,44 +15,6 @@
     });
   }
 
-  const heroTitle = document.getElementById('typewriter-text');
-  if (heroTitle) {
-    const titleText = "Hi, I'm Anwar.";
-    heroTitle.setAttribute('aria-label', titleText);
-
-    function typeHeroTitle() {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        heroTitle.textContent = titleText;
-        return;
-      }
-
-      heroTitle.textContent = '';
-      heroTitle.classList.add('is-typing');
-      let characterIndex = 0;
-
-      function typeNextCharacter() {
-        heroTitle.textContent = titleText.slice(0, characterIndex + 1);
-        characterIndex += 1;
-        if (characterIndex < titleText.length) {
-          window.setTimeout(typeNextCharacter, 75);
-        } else {
-          heroTitle.classList.remove('is-typing');
-        }
-      }
-
-      window.setTimeout(typeNextCharacter, 250);
-    }
-
-    if ('IntersectionObserver' in window) {
-      const heroObserver = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) typeHeroTitle();
-      }, { threshold: 0.4 });
-      heroObserver.observe(heroTitle);
-    } else {
-      typeHeroTitle();
-    }
-  }
-
   if ('IntersectionObserver' in window) {
     const revealTargets = document.querySelectorAll(
       '#about > *, #videos > *, #contact > *, #client-inquiry > *, #short-form-videos > *:not(#shortSlider), .benefit-list > *, footer'
@@ -96,38 +58,28 @@
 
   if (!videoGrid || !prevBtn || !nextBtn || !sliderContainer) return;
 
-  const videoSources = [
-    {
-      src: 'Short video/short 1.mp4',
-      poster: 'Short video/cover 1.jpg',
-      title: '₹1 Lakh Per Month'
-    },
-    {
-      src: 'Short video/short 2.mp4',
-      poster: 'Short video/cover 2.jpg',
-      title: 'Finance & Lifestyle'
-    },
-    {
-      src: 'Short video/short 3.mp4',
-      poster: 'Short video/cover 3.jpg',
-      title: 'Finance Short 03'
-    },
-    {
-      src: 'Short video/short 4.mp4',
-      poster: 'Short video/cover 4.jpg',
-      title: 'Why Does the Fortuner Cost ₹42 Lakh?'
-    },
-    {
-      src: 'Short video/short 5.mp4',
-      poster: 'Short video/cover 5.jpg',
-      title: 'Why It Is Important'
-    },
-    {
-      src: 'Short video/short 6.mp4',
-      poster: 'Short video/cover 6.jpg',
-      title: 'Share This'
-    }
-  ];
+  const videoCards = Array.from(
+    videoGrid.querySelectorAll('.slider-video-container')
+  );
+  const videoElements = videoCards.map((card, index) => {
+    const video = card.querySelector('video');
+    if (!video) throw new Error(`Portfolio video ${index + 1} is missing its media.`);
+    return video;
+  });
+  const loadVideoPosters = (indices = videoElements.map((_, index) => index)) => {
+    new Set(indices).forEach((index) => {
+      const video = videoElements[index];
+      if (!video.dataset.poster) {
+        throw new Error(`Portfolio video ${index + 1} is missing its poster.`);
+      }
+      video.poster = video.dataset.poster;
+    });
+  };
+  const videoSources = videoCards.map((card) => {
+    const title = card.querySelector('.short-video-title');
+    if (!title) throw new Error('Each portfolio video needs a title.');
+    return { title: title.textContent.trim() };
+  });
   let currentIndex = 0;
   let animationFrame = 0;
   let currentCardWidth = 0;
@@ -135,40 +87,6 @@
   const springMass = 0.9;
   const springStiffness = 210;
   const springDamping = 26;
-
-  function createVideoElement(source, containerClass) {
-    const container = document.createElement('div');
-    container.className = `slider-video-container ${containerClass}`;
-    container.dataset.index = String(videoSources.indexOf(source));
-    container.tabIndex = 0;
-    container.setAttribute('role', 'button');
-    container.setAttribute('aria-label', `Show ${source.title}`);
-
-    const video = document.createElement('video');
-    video.poster = source.poster;
-    video.src = source.src;
-    video.loading = 'lazy';
-    video.title = source.title;
-    video.muted = true;
-    video.preload = 'none';
-    video.controls = videoSources.indexOf(source) === currentIndex;
-    container.appendChild(video);
-
-    const title = document.createElement('p');
-    title.className = 'short-video-title';
-    title.textContent = source.title;
-    container.appendChild(title);
-
-    container.addEventListener('click', () => setActive(videoSources.indexOf(source)));
-    container.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        setActive(videoSources.indexOf(source));
-      }
-    });
-
-    return container;
-  }
 
   function getCardOffset(index) {
     let offset = index - currentIndex;
@@ -195,10 +113,7 @@
     };
   }
 
-  function applyCardPosition(card, position) {
-    card.style.transform = `translate3d(${position.x}px, 0, ${position.z}px) rotateY(${position.rotateY}deg) scale(${position.scale})`;
-    card.style.opacity = '1';
-    card.querySelector('video').style.opacity = String(position.opacity);
+  function applyCardState(card, video, position) {
     card.style.zIndex = String(position.zIndex);
     card.style.visibility = position.visible ? 'visible' : 'hidden';
     card.style.pointerEvents = position.visible ? 'auto' : 'none';
@@ -206,7 +121,12 @@
     card.setAttribute('aria-current', position.opacity === 1 ? 'true' : 'false');
     card.classList.toggle('center', position.opacity === 1);
     card.classList.toggle('side', position.opacity !== 1);
-    card.querySelector('video').controls = position.opacity === 1;
+    video.controls = position.opacity === 1;
+  }
+
+  function applyCardPosition(card, video, position) {
+    card.style.transform = `translate3d(${position.x}px, 0, ${position.z}px) rotateY(${position.rotateY}deg) scale(${position.scale})`;
+    video.style.opacity = String(position.opacity);
   }
 
   function springProgress(elapsed) {
@@ -225,18 +145,19 @@
   function updateCarousel(animate = true) {
     if (animationFrame) window.cancelAnimationFrame(animationFrame);
 
-    const cards = Array.from(videoGrid.querySelectorAll('.slider-video-container'));
-    const targets = cards.map((card) => ({
+    const targets = videoCards.map((card, index) => ({
       card,
+      video: videoElements[index],
       from: motionStates.get(card) || getCardPosition(getCardOffset(Number(card.dataset.index))),
       to: getCardPosition(getCardOffset(Number(card.dataset.index)))
     }));
+    targets.forEach(({ card, video, to }) => applyCardState(card, video, to));
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!animate || reduceMotion) {
-      targets.forEach(({ card, to }) => {
+      targets.forEach(({ card, video, to }) => {
         motionStates.set(card, to);
-        applyCardPosition(card, to);
+        applyCardPosition(card, video, to);
       });
       return;
     }
@@ -246,7 +167,7 @@
       const elapsed = (now - startedAt) / 1000;
       const progress = Math.min(1, springProgress(elapsed));
 
-      targets.forEach(({ card, from, to }) => {
+      targets.forEach(({ card, video, from, to }) => {
         const position = {
           x: from.x + (to.x - from.x) * progress,
           rotateY: from.rotateY + (to.rotateY - from.rotateY) * progress,
@@ -257,15 +178,15 @@
           zIndex: to.zIndex
         };
         motionStates.set(card, position);
-        applyCardPosition(card, position);
+        applyCardPosition(card, video, position);
       });
 
       if (elapsed < 0.72) {
         animationFrame = window.requestAnimationFrame(frame);
       } else {
-        targets.forEach(({ card, to }) => {
+        targets.forEach(({ card, video, to }) => {
           motionStates.set(card, to);
-          applyCardPosition(card, to);
+          applyCardPosition(card, video, to);
         });
         animationFrame = 0;
       }
@@ -305,26 +226,54 @@
     }
   }, { passive: true });
 
-  videoSources.forEach((source, index) => {
+  videoCards.forEach((card, index) => {
+    const source = videoSources[index];
+    const video = videoElements[index];
+
+    card.dataset.index = String(index);
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Show ${source.title}`);
+    video.muted = true;
+    video.preload = 'none';
+    card.addEventListener('click', () => setActive(index));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setActive(index);
+      }
+    });
+
     const distance = getCardOffset(index);
-    const card = createVideoElement(
-      source,
-      distance === 0 ? 'center' : 'side'
-    );
     const initialPosition = getCardPosition(distance);
     card.style.width = 'var(--carousel-card-width, 172px)';
     card.style.left = '50%';
     card.style.top = '20px';
-    videoGrid.appendChild(card);
     motionStates.set(card, initialPosition);
-    applyCardPosition(card, initialPosition);
+    applyCardState(card, video, initialPosition);
+    applyCardPosition(card, video, initialPosition);
   });
+  videoGrid.dataset.carouselReady = 'true';
+
+  if ('IntersectionObserver' in window) {
+    const posterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const index = Number(entry.target.dataset.index);
+        loadVideoPosters([index]);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '300px 0px' });
+    videoCards.forEach((card) => posterObserver.observe(card));
+  } else {
+    loadVideoPosters();
+  }
 
   function resizeCarousel() {
     currentCardWidth = Math.round(Math.min(268, Math.max(172, videoGrid.clientWidth * 0.4)));
     videoGrid.style.setProperty('--carousel-card-width', `${currentCardWidth}px`);
     videoGrid.style.height = `${Math.round(currentCardWidth * (16 / 9) + 92)}px`;
-    videoGrid.querySelectorAll('.slider-video-container').forEach((card) => {
+    videoCards.forEach((card) => {
       card.style.marginLeft = `${-currentCardWidth / 2}px`;
     });
     updateCarousel(false);

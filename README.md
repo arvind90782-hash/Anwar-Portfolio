@@ -45,6 +45,31 @@ GitHub Pages does not process `.htaccess` or Vercel headers. `.htaccess` is only
 
 This static site has no server-side form storage or analytics. The inquiry form puts the visitor's entered details into a WhatsApp message for them to review and send. Anwar's email address and WhatsApp number are intentionally public contact details; no credentials or private keys are included in the site.
 
+## Editorial pages and project publishing
+
+The existing homepage remains the main portfolio experience. New editorial pages use a separate stylesheet so their monochrome presentation does not alter the homepage design.
+
+- `/work/` lists published project samples.
+- `/work/<project-slug>/` contains the corresponding crawlable project case study.
+- `/services/`, `/about/`, `/contact/`, and `/privacy-policy/` contain supporting information.
+- Previous `/projects/<project-slug>/` addresses permanently redirect to the new `/work/` case-study routes on Vercel and Apache.
+
+Project content is maintained in `data/projects.json`. Each entry has a `publicationStatus` of `draft` or `published`; only published projects are generated into the portfolio, sitemap, and related-project links. After editing project or supporting-page data, run:
+
+```powershell
+node .\scripts\generate-pages.js
+```
+
+The generator writes static HTML into the route directories, updates the sitemap, and removes only previously generated route files that are no longer published. Commit the generated HTML together with the source data so the static Vercel deployment serves crawlable content without client-side rendering.
+
+## Advertising slots
+
+The reusable placements are defined in `data/ad-config.json`; the page generator emits `ad-config.js`, and `ad-slots.js` renders the configured placements. All site-managed placements are disabled by default. A placement only renders a configured active campaign; optional fallback copy is available if a placement is deliberately enabled without a campaign. Enabled slots reserve space in the generated HTML to avoid shifting content when the placement script runs. Campaign links are labeled as advertisements and use `rel="sponsored noopener noreferrer"`. Do not enable a campaign until the owner has confirmed the creative, destination, advertiser and any required advertising-provider approvals.
+
+The Google AdSense ownership-verification script for publisher `ca-pub-3376684105322240` is included in the homepage and generated page heads. The CSP permits that script host. This ownership snippet is separate from the disabled site-managed ad slots; confirm Auto ads are not enabled in the AdSense account unless and until the owner intends to show ads. No `ads.txt` file is generated because no official `ads.txt` directive was supplied.
+
+The privacy page reflects the current implementation and should be reviewed by the owner for accuracy and local legal requirements before it is treated as legal advice.
+
 ## Project files
 
 ```text

@@ -2,6 +2,12 @@ DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteRule ^projects/presenter-led-finance-reel/?$ /work/presenter-led-finance-reel/ [R=301,L]
+  RewriteRule ^projects/100-crore-time-comparison/?$ /work/100-crore-time-comparison/ [R=301,L]
+  RewriteRule ^projects/sip-vs-fd-projection/?$ /work/sip-vs-fd-projection/ [R=301,L]
+  RewriteRule ^projects/fortuner-price-breakdown/?$ /work/fortuner-price-breakdown/ [R=301,L]
+  RewriteRule ^projects/car-cost-example/?$ /work/car-cost-example/ [R=301,L]
+  RewriteRule ^projects/mutual-fund-calculator-explainer/?$ /work/mutual-fund-calculator-explainer/ [R=301,L]
   RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -12,6 +18,6 @@ DirectoryIndex index.html
   Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; media-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; media-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://pagead2.googlesyndication.com; upgrade-insecure-requests"
   Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>

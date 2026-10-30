@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "services",
+    "title": "Finance Video Editing Services | Anwar",
+    "description": "Explore Anwar's short-form finance video editing for Instagram Reels and YouTube Shorts, with clear storytelling, clean pacing and purposeful visuals.",
+    "heading": "Finance video editing services",
+    "intro": "Anwar edits short-form finance videos for Reels and YouTube Shorts. His stated approach is to keep the core message clear, the pacing clean and visual treatment purposeful.",
+    "sections": [
+      {
+        "heading": "Finance Reels editing",
+        "paragraph": "Editing for vertical finance Reels, using the supplied footage and content as the basis for the cut. The portfolio includes presenter-led samples with timed captions and visual inserts."
+      },
+      {
+        "heading": "Finance YouTube Shorts editing",
+        "paragraph": "Short-form finance edits for YouTube Shorts. Existing samples show presenter footage, graphics, numeric labels, comparison tables and screen-interface cutaways."
+      },
+      {
+        "heading": "A clear, purposeful editing approach",
+        "paragraph": "The stated focus is clear storytelling, clean pacing and visuals that support the material rather than effects added for their own sake. Each sample page describes only the techniques visible in the supplied video."
+      },
+      {
+        "heading": "Project details to confirm",
+        "paragraph": "Pricing, turnaround, revision terms, delivery formats and the exact project handoff process are not listed on the portfolio. Contact Anwar to confirm current arrangements before starting a project."
+      }
+    ],
+    "cta": {
+      "heading": "Discuss a finance video edit",
+      "text": "Share the video format and a short description of the project with Anwar.",
+      "emailLabel": "Email Anwar",
+      "whatsappLabel": "Contact Anwar on WhatsApp"
+    },
+    "adPlacement": "supporting-content"
+  },
+  {
+    "slug": "about",
+    "title": "About Anwar | Finance Video Editor",
+    "description": "Meet Anwar, a freelance video editor focused on short-form finance content, including Instagram Reels and YouTube Shorts.",
+    "heading": "About Anwar",
+    "intro": "I'm Anwar, a freelance video editor focused on short-form finance content. My portfolio shows finance-themed vertical video samples edited around presenters, captions, graphics and screen visuals.",
+    "sections": [
+      {
+        "heading": "Editing focus",
+        "paragraph": "The work shown here focuses on finance Reels and YouTube Shorts. The samples include presenter-led clips, number comparisons, SIP and FD table graphics, vehicle-cost examples and a mutual-fund calculator illustration."
+      },
+      {
+        "heading": "Approach",
+        "paragraph": "My stated approach is to use clear storytelling, clean pacing and purposeful visuals. Project descriptions are limited to what can be seen in the supplied samples; client identities and outcomes are not claimed."
+      },
+      {
+        "heading": "Work with Anwar",
+        "paragraph": "For current availability, pricing, turnaround or revision details, contact me directly. Those arrangements are not published as fixed offers on this portfolio."
+      }
+    ],
+    "cta": {
+      "heading": "Start a project conversation",
+      "text": "Tell Anwar what format you need and what your finance video is about.",
+      "emailLabel": "Email Anwar",
+      "whatsappLabel": "Contact Anwar on WhatsApp"
+    }
+  },
+  {
+    "slug": "contact",
+    "title": "Contact Anwar | Finance Video Editing",
+    "description": "Contact Anwar about finance Reels and YouTube Shorts editing by email or WhatsApp. Share the format and a few details about your project.",
+    "heading": "Contact Anwar",
+    "intro": "For a finance Reel or YouTube Short editing enquiry, contact Anwar by email or WhatsApp. Include the format you need and a short description of the video.",
+    "sections": [
+      {
+        "heading": "Email",
+        "paragraph": "Send your project enquiry to anwaransarijmt1098@gmail.com. You can include your preferred format, the topic and any references you would like to discuss."
+      },
+      {
+        "heading": "WhatsApp",
+        "paragraph": "Message Anwar on WhatsApp to discuss a project. The existing homepage also has an enquiry form that prepares a WhatsApp message for you to review and send."
+      },
+      {
+        "heading": "Project arrangements",
+        "paragraph": "Pricing, turnaround, revision terms and file delivery arrangements are not published here. Confirm these directly with Anwar before beginning work."
+      }
+    ],
+    "cta": {
+      "heading": "Choose a contact method",
+      "text": "Use the direct links below to start an enquiry.",
+      "emailLabel": "Email Anwar",
+      "whatsappLabel": "Open WhatsApp"
+    }
+  },
+  {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy | Anwar — Finance Video Editor",
+    "description": "Privacy information for Anwar's static finance video editor portfolio, including contact links, the WhatsApp enquiry form, hosting and fonts.",
+    "heading": "Privacy policy",
+    "intro": "This page explains what happens when you browse Anwar's portfolio or choose to contact him. The site is a static portfolio and does not provide account creation or server-side enquiry storage.",
+    "sections": [
+      {
+        "heading": "Information submitted through the homepage form",
+        "paragraph": "The homepage enquiry form uses the name, requested video format and project details you enter to prepare a WhatsApp message. Submitting the form navigates your browser to a WhatsApp link containing that prefilled text, where you can review and send it. The website does not submit the form to a site-owned database or retain its field values. The destination URL may be visible in browser history and is handled by WhatsApp under its privacy terms."
+      },
+      {
+        "heading": "Email and WhatsApp links",
+        "paragraph": "Choosing an email or WhatsApp link opens the relevant service with Anwar's public contact details. Information you send is handled by that service and by Anwar as the recipient, subject to their applicable terms and your communications."
+      },
+      {
+        "heading": "Hosting and external resources",
+        "paragraph": "The site is deployed on Vercel. The pages request the Inter font from Google Fonts where that resource is used. Hosting and font providers may process connection data such as an IP address to deliver their services; consult their current privacy notices for details."
+      },
+      {
+        "heading": "Cookies, analytics and advertising",
+        "paragraph": "The site includes Google's AdSense script to verify site ownership for publisher account ca-pub-3376684105322240. The portfolio's own advertisement placements are disabled by default, and no separate ad unit is configured in the site code. Google may process connection or browser data when this external script is requested; see Google's current privacy information for details. The theme toggle changes the page appearance in the current browser session and does not save a preference."
+      },
+      {
+        "heading": "Contact and updates",
+        "paragraph": "For a privacy question, contact Anwar at anwaransarijmt1098@gmail.com. This policy should be reviewed by the website owner for accuracy and local legal requirements before publication."
+      }
+    ],
+    "updated": "30 October 2026",
+    "ads": false
+  }
+]
